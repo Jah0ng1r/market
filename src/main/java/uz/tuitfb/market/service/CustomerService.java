@@ -17,8 +17,26 @@ public class CustomerService {
     }
 
     public void saveAll(List<Customer> customerList) {
-        if (customerList != null && customerList.size() > 0) {
-            cystomerRepository.saveAll(customerList);
-        }
+        cystomerRepository.saveAll(customerList);
+
     }
+
+    public void save(Customer customer) {
+        cystomerRepository.save(customer);
+    }
+
+    public List<Customer> findAll() {
+        return cystomerRepository.findAll();
+    }
+
+    public Customer findByCustomerId(Integer customerId) {
+        if (customerId != null) {
+            return cystomerRepository
+                    .findById(customerId)
+                    .orElseThrow(() -> new IllegalArgumentException("could not found customer by id"));
+        }
+        return null;
+
+    }
+
 }
