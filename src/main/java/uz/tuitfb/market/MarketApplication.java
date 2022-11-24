@@ -24,13 +24,17 @@ public class MarketApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        List<Customer> customers = new LinkedList<>();
-        customers.addAll(Stream.of(
-                new Customer( "Ferganna", Country.UZB, "+998911533507"),
-                new Customer( "Ferganna", Country.UZB, "+998911533508"),
-                new Customer( "Qo`qon", Country.RUS, "+998911533509")
-        ).collect(Collectors.toList()));
-        System.out.println(customers);
-        customerService.saveAll(customers);
+
+
+//        List<Customer> customers = new LinkedList<>();
+//        customers.addAll(Stream.of(
+//                new Customer( "Ferganna", Country.UZB, "+998911533507"),
+//                new Customer( "Ferganna", Country.UZB, "+998911533508"),
+//                new Customer( "Qo`qon", Country.RUS, "+998911533509")
+//        ).collect(Collectors.toList()));
+//        System.out.println(customers);
+//        customerService.saveAll(customers);
+
+
     }
 }
