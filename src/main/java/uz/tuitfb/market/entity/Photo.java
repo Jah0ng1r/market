@@ -20,7 +20,7 @@ public class Photo implements Serializable {
     private String photoName;
 
     @Column(name = "size", nullable = true)
-    private String size;
+    private Integer size;
 
     @Column(name = "path", nullable = false)
     private String absalutepath;
@@ -31,6 +31,20 @@ public class Photo implements Serializable {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id", referencedColumnName = "id")
     private Product product;
+
+    public Photo() {
+
+
+    }
+
+    public Photo(Integer id, String photoName, Integer size, String absalutepath, String extension, Product product) {
+        this.id = id;
+        this.photoName = photoName;
+        this.size = size;
+        this.absalutepath = absalutepath;
+        this.extension = extension;
+        this.product = product;
+    }
 
     public Integer getId() {
         return id;
@@ -48,11 +62,11 @@ public class Photo implements Serializable {
         this.photoName = photoName;
     }
 
-    public String getSize() {
+    public Integer getSize() {
         return size;
     }
 
-    public void setSize(String size) {
+    public void setSize(Integer size) {
         this.size = size;
     }
 
@@ -70,5 +84,13 @@ public class Photo implements Serializable {
 
     public void setExtension(String extension) {
         this.extension = extension;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
     }
 }

@@ -7,10 +7,19 @@ import java.util.Set;
 
 @Entity
 @Table(name = "product")
+@NamedEntityGraph(
+        name = Product.CATEGORY,
+        attributeNodes = {@NamedAttributeNode("category")}
+)
 public class Product implements Serializable {
+
+
     private static final long serialVersionUID = 1L;
     @Transient
     private static final String sequence = "product_sequence";
+    @Transient
+    public static final String CATEGORY = "Product.Category";
+    ;
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = sequence)
